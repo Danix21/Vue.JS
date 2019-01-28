@@ -16,7 +16,6 @@ app.use(express.json());
 
 // Routes
 app.use('/api/personas', require('./routes/personas'));
-app.use('/api/palabras', require('./routes/palabras'));
 
 // Static files
 app.use(express.static(__dirname + '/public'));

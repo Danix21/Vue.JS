@@ -1,57 +1,11 @@
 <template>
-    <div>
-        <nav class="navbar navbar-light bg-light">
-            <a href="/" class="navbar-brand">Task -></a>
-            <a href="/diccionario.html" class="navbar-brand">Diccionario -></a>
+    <div class="container">
+        <nav class="navbar navbar-dark bg-dark">
+            <button class="btn btn-primary btn-block col-md-4" >Vene-tino</button><button class="btn btn-primary btn-block col-md-4">Argen-lano</button>
+            
         </nav>
-        <div class="container">
-            <div class="row pt-3">
-                <div class="col-md-5">
-                    <div class="card">
-                        <div class="card-body">
-                            <form @submit.prevent="addOrUpdatePersona">
-                                <div class="form-group">
-                                    <input type="text" placeholder="Insert a task" class="form-control" v-model="persona.nombre">
-                                </div>
-                                <div class="form-group">
-                                    <textarea cols="30" rows="10" class="form-control" placeholder="Insert a description" v-model="persona.apellido"></textarea>
-                                </div>
-                                <template v-if="id === ''">
-                                    <button class="btn btn-primary btn-block">Save</button>
-                                </template>
-                                <template v-else>
-                                    <button class="btn btn-primary btn-block">Update</button>
-                                </template>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-7">
-                    <table class="table table-bordered">
-                        <thead>
-                            <tr>
-                                <th>Task</th>
-                                <th>Description</th>
-                                <th>Action</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr v-for="(persona, key) of personas" :key="key">
-                                <th>{{ persona.nombre }}</th>
-                                <th>{{ persona.apellido }}</th>
-                                <th>
-                                    <button @click="deletePersona(persona._id)" class="btn btn-danger">Delete</button>
-                                    <button @click="getPersona(persona._id)" class="btn btn-secondary">Edit</button>
-                                </th>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        </div>
     </div>
 </template>
-
 
 <script lang="vue">
 
@@ -68,8 +22,8 @@
     export default {
         data() {
             return {
-                persona: new Persona(),
-                personas: [],
+                palabra: new Palabra(),
+                diccionario: [],
                 id: ''
             }
         },
